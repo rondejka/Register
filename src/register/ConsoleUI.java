@@ -110,7 +110,15 @@ public class ConsoleUI {
     
     //TODO: Implement the method findInRegister
     private void findInRegister() {
-        throw new UnsupportedOperationException("Method findInRegister not yet implemented");
+        System.out.println("Enter Phone Number: ");
+        String phoneNumber = readLine();
+
+        Person personX = register.findPersonByPhoneNumber(phoneNumber);
+        if (personX == null) {
+            System.out.println("Nenajdene");
+        } else {
+            System.out.println(personX);
+        }
     }
     
     private void removeFromRegister() {
