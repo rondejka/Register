@@ -75,6 +75,14 @@ public class Person {
         }
 
         return true;
+
+        //ina metoda
+//        for (int i=0; i < phoneNumber.length(); i++) {
+//            if (!Character.isDigit(phoneNumber.charAt(i))) {
+//                return false;
+//            }
+//        }
+//        return true;
     }
     
     /**
