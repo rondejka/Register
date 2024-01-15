@@ -65,7 +65,7 @@ public class Person {
      * @return <code>true</code> if phone number is valid, <code>false</code> otherwise
      */
     private boolean isValidPhoneNumber(String phoneNumber) {
-        Pattern pattern = Pattern.compile("[0-9]*");
+        Pattern pattern = Pattern.compile("[0-9]+");
 
         Matcher matcher = pattern.matcher(phoneNumber);
 

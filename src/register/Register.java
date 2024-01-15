@@ -98,5 +98,6 @@ public class Register {
         if(index != count){
             persons[index] = persons[count];
         }
+        persons[count] = null;
     }
 }
