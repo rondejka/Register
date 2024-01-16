@@ -1,5 +1,7 @@
 package register;
 
+import java.util.Locale;
+
 /**
  * register.Person register.
  */
@@ -57,7 +59,6 @@ public class Register {
         persons[index] = person;
     }
 
-    //TODO: Implement the method findPersonByName
     /**
      * Returns the person with specified name in this register or <code>null</code>,
      * if match can not be found.
@@ -68,7 +69,6 @@ public class Register {
         throw new UnsupportedOperationException("Method findPersonByName not yet implemented");
     }
     
-    //TODO: Implement the method findPersonByPhoneNumber
     /**
      * Returns the person with specified phone number in this register or <code>null</code>,
      * if match can not be found.
@@ -77,14 +77,28 @@ public class Register {
      */
     public Person findPersonByPhoneNumber(String phoneNumber) {
         for (int i = 0; i < count; i++) {
-            if (persons[i].getPhoneNumber().equals(phoneNumber)) {
+            if (persons[i].getPhoneNumber().contains(phoneNumber)) {
                 return persons[i];
             }
         }
         return null;
     }
-    
-    //TODO: Implement the method removePerson
+
+    public Person[] findPersonByPhoneNumberOrName(String nameOrPhoneNumber) {
+        Person[] personsF;
+        personsF = new Person[count];
+        int personsFound = 0;
+
+        for (int i = 0; i < count; i++) {
+            if (persons[i].toString().toUpperCase(Locale.ROOT).contains(nameOrPhoneNumber.toUpperCase())) {
+                personsF[personsFound] = persons[i];
+                personsFound++;
+            }
+        }
+        return personsF;
+    }
+
+    //method removePerson
     /**
      * Removes the specified person from the register.
      * @param person person to remove

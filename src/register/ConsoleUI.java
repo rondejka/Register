@@ -21,7 +21,7 @@ public class ConsoleUI {
      * Menu options.
      */
     private enum Option {
-        PRINT, ADD, UPDATE, REMOVE, FIND, EXIT
+        PRINT, ADD, UPDATE, REMOVE, FIND_by_Phone, EXIT, FIND_by_Phone_or_Name
     };
     
     public ConsoleUI(Register register) {
@@ -43,8 +43,11 @@ public class ConsoleUI {
                 case REMOVE:
                     removeFromRegister();
                     break;
-                case FIND:
+                case FIND_by_Phone:
                     findInRegister();
+                    break;
+                case FIND_by_Phone_or_Name:
+                    findInRegister2();
                     break;
                 case EXIT:
                     return;
@@ -120,7 +123,20 @@ public class ConsoleUI {
             System.out.println(personX);
         }
     }
-    
+
+    private void findInRegister2() {
+        System.out.println("Enter Phone Number OR Name: ");
+        String stringToFind = readLine();
+
+        Person[] personX = register.findPersonByPhoneNumberOrName(stringToFind);
+        System.out.println(personX.length > 0? "Tu je zoznam:" : "Nenaslo sa");
+        for (Person personZ: personX) {
+            if (personZ != null) {
+                System.out.println(personZ);
+            }
+        }
+    }
+
     private void removeFromRegister() {
         System.out.println("Enter index: ");
         int index = Integer.parseInt(readLine());
